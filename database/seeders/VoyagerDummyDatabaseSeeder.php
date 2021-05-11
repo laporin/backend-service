@@ -14,10 +14,14 @@ class VoyagerDummyDatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            MenusTableSeeder::class,
+            MenuItemsTableSeeder::class,
             CategoriesTableSeeder::class,
             UsersTableSeeder::class,
             PostsTableSeeder::class,
             PagesTableSeeder::class,
+            DataTypesTableSeeder::class,
+            RolesTableSeeder::class,
             TranslationsTableSeeder::class,
             PermissionRoleTableSeeder::class,
         ]);
