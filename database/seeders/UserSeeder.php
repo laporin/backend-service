@@ -14,6 +14,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        if (User::count() != 0) {
+            return;
+        }
+
         $admin = User::create([
             'name' => 'admin',
             'username' => 'admin',
