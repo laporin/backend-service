@@ -19,8 +19,8 @@ class CreateApiTokenTest extends TestCase
             return $this->markTestSkipped('API support is not enabled.');
         }
 
-        if (Features::hasTeamFeatures()) {
-            $this->actingAs($user = User::factory()->withPersonalTeam()->create());
+        if (Features::hasAgentFeatures()) {
+            $this->actingAs($user = User::factory()->withPersonalAgent()->create());
         } else {
             $this->actingAs($user = User::factory()->create());
         }

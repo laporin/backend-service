@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Team;
+use App\Models\Agent;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class TeamSeeder extends Seeder
+class AgentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,10 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        Team::create([
+        Agent::create([
             'name' => 'Administrator',
             'user_id' => User::first()->id,
-            'personal_team' => true,
+            'personal_agent' => true,
         ]);
     }
 }

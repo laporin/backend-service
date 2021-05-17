@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Jetstream\Events\TeamCreated;
-use Laravel\Jetstream\Events\TeamDeleted;
-use Laravel\Jetstream\Events\TeamUpdated;
+use Laravel\Jetstream\Events\AgentCreated;
+use Laravel\Jetstream\Events\AgentDeleted;
+use Laravel\Jetstream\Events\AgentUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 
-class Team extends JetstreamTeam
+class Agent extends JetstreamTeam
 {
     use HasFactory;
 
@@ -18,7 +18,7 @@ class Team extends JetstreamTeam
      * @var array
      */
     protected $casts = [
-        'personal_team' => 'boolean',
+        'personal_agent' => 'boolean',
     ];
 
     /**
@@ -28,7 +28,7 @@ class Team extends JetstreamTeam
      */
     protected $fillable = [
         'name',
-        'personal_team',
+        'personal_agent',
     ];
 
     /**
@@ -37,8 +37,8 @@ class Team extends JetstreamTeam
      * @var array
      */
     protected $dispatchesEvents = [
-        'created' => TeamCreated::class,
-        'updated' => TeamUpdated::class,
-        'deleted' => TeamDeleted::class,
+        'created' => AgentCreated::class,
+        'updated' => AgentUpdated::class,
+        'deleted' => AgentDeleted::class,
     ];
 }

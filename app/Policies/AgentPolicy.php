@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Team;
+use App\Models\Agent;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TeamPolicy
+class AgentPolicy
 {
     use HandlesAuthorization;
 
@@ -25,12 +25,12 @@ class TeamPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Agent  $agent
      * @return mixed
      */
-    public function view(User $user, Team $team)
+    public function view(User $user, Agent $agent)
     {
-        return $user->belongsToTeam($team);
+        return $user->belongsToAgent($agent);
     }
 
     /**
@@ -48,59 +48,59 @@ class TeamPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Agent  $agent
      * @return mixed
      */
-    public function update(User $user, Team $team)
+    public function update(User $user, Agent $agent)
     {
-        return $user->ownsTeam($team);
+        return $user->ownsAgent($agent);
     }
 
     /**
-     * Determine whether the user can add team members.
+     * Determine whether the user can add agent members.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Agent  $agent
      * @return mixed
      */
-    public function addTeamMember(User $user, Team $team)
+    public function addAgentMember(User $user, Agent $agent)
     {
-        return $user->ownsTeam($team);
+        return $user->ownsAgent($agent);
     }
 
     /**
-     * Determine whether the user can update team member permissions.
+     * Determine whether the user can update agent member permissions.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Agent  $agent
      * @return mixed
      */
-    public function updateTeamMember(User $user, Team $team)
+    public function updateAgentMember(User $user, Agent $agent)
     {
-        return $user->ownsTeam($team);
+        return $user->ownsAgent($agent);
     }
 
     /**
-     * Determine whether the user can remove team members.
+     * Determine whether the user can remove agent members.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Agent  $agent
      * @return mixed
      */
-    public function removeTeamMember(User $user, Team $team)
+    public function removeAgentMember(User $user, Agent $agent)
     {
-        return $user->ownsTeam($team);
+        return $user->ownsAgent($agent);
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Agent  $agent
      * @return mixed
      */
-    public function delete(User $user, Team $team)
+    public function delete(User $user, Agent $agent)
     {
-        return $user->ownsTeam($team);
+        return $user->ownsAgent($agent);
     }
 }

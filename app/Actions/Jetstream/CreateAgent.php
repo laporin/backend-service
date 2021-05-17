@@ -4,14 +4,14 @@ namespace App\Actions\Jetstream;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Jetstream\Contracts\CreatesTeams;
-use Laravel\Jetstream\Events\AddingTeam;
+use Laravel\Jetstream\Contracts\CreatesTeams as CreatesAgents;
+use Laravel\Jetstream\Events\AddingTeam as AddingAgent;
 use Laravel\Jetstream\Jetstream;
 
-class CreateTeam implements CreatesTeams
+class CreateAgent implements CreatesAgents
 {
     /**
-     * Validate and create a new team for the given user.
+     * Validate and create a new agent for the given user.
      *
      * @param  mixed  $user
      * @param  array  $input
@@ -23,15 +23,15 @@ class CreateTeam implements CreatesTeams
 
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-        ])->validateWithBag('createTeam');
+        ])->validateWithBag('createAgent');
 
-        AddingTeam::dispatch($user);
+        AddingAgent::dispatch($user);
 
-        $user->switchTeam($team = $user->ownedTeams()->create([
+        $user->switchAgent($agent = $user->ownedAgents()->create([
             'name' => $input['name'],
-            'personal_team' => false,
+            'personal_agent' => false,
         ]));
 
-        return $team;
+        return $agent;
     }
 }
