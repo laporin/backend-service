@@ -33,12 +33,12 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         $this->configurePermissions();
 
-        Jetstream::createAgentsUsing(CreateAgent::class);
-        Jetstream::updateAgentNamesUsing(UpdateAgentName::class);
-        Jetstream::addAgentMembersUsing(AddAgentMember::class);
-        Jetstream::inviteAgentMembersUsing(InviteAgentMember::class);
-        Jetstream::removeAgentMembersUsing(RemoveAgentMember::class);
-        Jetstream::deleteAgentsUsing(DeleteAgent::class);
+        Jetstream::createTeamsUsing(CreateAgent::class);
+        Jetstream::updateTeamNamesUsing(UpdateAgentName::class);
+        Jetstream::addTeamMembersUsing(AddAgentMember::class);
+        Jetstream::inviteTeamMembersUsing(InviteAgentMember::class);
+        Jetstream::removeTeamMembersUsing(RemoveAgentMember::class);
+        Jetstream::deleteTeamsUsing(DeleteAgent::class);
         Jetstream::deleteUsersUsing(DeleteUser::class);
     }
 

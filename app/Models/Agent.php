@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Jetstream\Events\AgentCreated;
-use Laravel\Jetstream\Events\AgentDeleted;
-use Laravel\Jetstream\Events\AgentUpdated;
+use Laravel\Jetstream\Events\TeamCreated as AgentCreated;
+use Laravel\Jetstream\Events\TeamDeleted as AgentDeleted;
+use Laravel\Jetstream\Events\TeamUpdated as AgentUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 
 class Agent extends JetstreamTeam
