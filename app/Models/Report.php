@@ -10,6 +10,24 @@ class Report extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'serial',
+        'user_id',
+        'category_id',
+        'detail',
+        'address',
+        'city',
+        'subdistrict',
+        'latitude',
+        'longitude',
+        'private',
+    ];
+
+    /**
      * Get all of the report's images.
      */
     public function images()
