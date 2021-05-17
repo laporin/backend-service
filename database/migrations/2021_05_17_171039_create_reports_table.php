@@ -15,15 +15,16 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+            $table->string('serial'); # $faker->lexify('id-????');
             $table->foreignId('user_id');
             $table->foreignId('category_id');
             $table->text('detail');
-            $table->enum('status', ['waiting', 'process', 'disposition', 'coordination', 'done']);
             $table->text('address');
             $table->string('city');
             $table->string('subdistrict');
             $table->double('latitude');
             $table->double('longitude');
+            $table->boolean('private')->default(false);
             $table->timestamps();
         });
     }
