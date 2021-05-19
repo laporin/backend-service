@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Report extends Model
+class Report extends Model implements HasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -26,12 +29,4 @@ class Report extends Model
         'longitude',
         'private',
     ];
-
-    /**
-     * Get all of the report's images.
-     */
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
 }

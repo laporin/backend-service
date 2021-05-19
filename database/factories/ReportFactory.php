@@ -26,10 +26,10 @@ class ReportFactory extends Factory
         return $this->afterMaking(function (Report $report) {
             //
         })->afterCreating(function (Report $report) {
-            // $url = 'https://source.unsplash.com/random/600x400';
-            // $report->images()
-            //    ->addMediaFromUrl($url)
-            //    ->toMediaCollection('auctions');
+            $url = 'https://source.unsplash.com/random/600x400?topics=nature?sig=123';
+            $report
+               ->addMediaFromUrl($url)
+               ->toMediaCollection('reports');
         });
     }
 
