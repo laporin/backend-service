@@ -10,6 +10,15 @@ class Image extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name'
+    ];
+
+    /**
      * Get the parent imageable model (history and report).
      */
     public function imageable()
