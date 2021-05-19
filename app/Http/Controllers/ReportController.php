@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReportRequest;
+use App\Http\Resources\ReportCollection;
+use App\Http\Resources\ReportResource;
 use App\Models\Report;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        return new ReportCollection(Report::paginate());
     }
 
     /**
@@ -45,9 +47,9 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function show(Report $report)
+    public function show($id)
     {
-        //
+        return new ReportResource(Report::findOrFail($id));
     }
 
     /**

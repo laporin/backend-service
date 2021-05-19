@@ -26,3 +26,6 @@ Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 
 Route::get('/categories', 'CategoryController@index');
 Route::get('/categories/{id}', 'CategoryController@show');
+
+Route::get('/reports', 'ReportController@index');
+Route::get('/reports/{id}', 'ReportController@show');
