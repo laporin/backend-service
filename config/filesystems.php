@@ -30,10 +30,10 @@ return [
 
     'disks' => [
 
-        'media' => [
-            'driver' => 'local',
-            'root'   => storage_path('media'),
-        ],
+        // 'media' => [
+        //     'driver' => 'local',
+        //     'root'   => storage_path('media'),
+        // ],
 
         'local' => [
             'driver' => 'local',

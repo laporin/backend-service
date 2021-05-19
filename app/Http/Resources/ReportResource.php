@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\MediaCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ReportResource extends JsonResource
@@ -14,6 +15,21 @@ class ReportResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'serial' => $this->serial,
+            'user_id' => $this->user_id,
+            'category_id' => $this->category_id,
+            'detail' => $this->detail,
+            'address' => $this->address,
+            'city' => $this->city,
+            'subdistrict' => $this->subdistrict,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
+            'private' => $this->private,
+            'image' => new MediaCollection($this->media->all()),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ];
     }
 }
