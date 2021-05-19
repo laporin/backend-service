@@ -28,8 +28,8 @@ class ReportFactory extends Factory
         })->afterCreating(function (Report $report) {
             $url = 'https://source.unsplash.com/random/600x400?topics=nature?sig=123';
             $report
-               ->addMediaFromUrl($url)
-               ->toMediaCollection('reports');
+                ->addMediaFromUrl($url)
+                ->toMediaCollection('reports');
         });
     }
 
@@ -40,8 +40,11 @@ class ReportFactory extends Factory
      */
     public function definition()
     {
+        $serialPrefix = 'ID';
+        $serialSuffix = $this->faker->unique()->regexify('[A-Z]{5}[0-4]{3}');
+
         return [
-            'serial' => $this->faker->lexify('id-????????'),
+            'serial' => $serialPrefix . $serialSuffix,
             'user_id' => User::all()->random()->id,
             'category_id' => Category::all()->random()->id,
             'detail' => $this->faker->text(),

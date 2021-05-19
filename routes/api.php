@@ -29,3 +29,4 @@ Route::get('/categories/{id}', 'CategoryController@show');
 
 Route::get('/reports', 'ReportController@index');
 Route::get('/reports/{id}', 'ReportController@show');
+Route::post('/reports', 'ReportController@create');
