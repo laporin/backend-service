@@ -17,7 +17,7 @@ class CreateHistoriesTable extends Migration
             $table->id();
             $table->foreignId('report_id');
             $table->text('detail');
-            $table->enum('status', ['waiting', 'process', 'disposition', 'coordination', 'done']);
+            $table->integer('history_type');
             $table->timestamps();
         });
     }
