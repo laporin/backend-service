@@ -13,7 +13,7 @@ class CreateAgentUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('agent_user', function (Blueprint $table) {
+        Schema::create('agent_users', function (Blueprint $table) {
             $table->id();
             $table->foreignId('agent_id');
             $table->foreignId('user_id');
@@ -31,6 +31,6 @@ class CreateAgentUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agent_user');
+        Schema::dropIfExists('agent_users');
     }
 }

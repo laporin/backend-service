@@ -41,4 +41,8 @@ class Agent extends JetstreamTeam
         'updated' => AgentUpdated::class,
         'deleted' => AgentDeleted::class,
     ];
+
+    public function users() {
+        return $this->hasManyThrough(User::class, AgentUser::class);
+    }
 }

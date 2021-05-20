@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasAgents;
 use Doctrine\DBAL\Types\StringType;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +10,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams as HasAgents;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -22,6 +22,13 @@ class User extends Authenticatable
     use HasRoles;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+    /**
+     * The team model that should be used by Jetstream.
+     *
+     * @var string
+     */
+    public static $teamModel = 'App\\Models\\Agent';
 
     /**
      * The attributes that are mass assignable.
@@ -65,6 +72,19 @@ class User extends Authenticatable
     public function isAdmin() {
         return $this->name == 'admin';
     }
+
+    // public function agents() {
+    //     return $this->hasManyThrough(Agent::class, AgentUser::class);
+    // }
+
+    // public function allAgents() {
+    //     return $this->agents()->get();
+    // }
+
+    // public function currentAgent()
+    // {
+    //     return $this->belongsTo(Agent::class);
+    // }
 
     public static function admin() {
         return User::getByRole('admin');

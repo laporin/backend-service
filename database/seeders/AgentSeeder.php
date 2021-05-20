@@ -15,10 +15,10 @@ class AgentSeeder extends Seeder
      */
     public function run()
     {
-        Agent::firstOrCreate([
-            'name' => 'Administrator',
-            'user_id' => User::first()->id,
-            'personal_agent' => true,
-        ]);
+        // Agent::firstOrCreate([
+        //     'name' => 'Administrator',
+        //     'user_id' => User::first()->id,
+        //     'personal_agent' => false,
+        // ]);
     }
 }

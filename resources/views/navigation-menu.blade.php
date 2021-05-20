@@ -20,7 +20,7 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Agents Dropdown -->
-                @if ((Laravel\Jetstream\Jetstream::hasAgentFeatures()) && (auth()->user()->isAdmin()))
+                @if ((Laravel\Jetstream\Jetstream::hasTeamFeatures()) && (auth()->user()->isAdmin()))
                     <div class="relative ml-3">
                         <x-jet-dropdown align="right" width="60">
                             <x-slot name="trigger">
@@ -43,12 +43,12 @@
                                     </div>
 
                                     <!-- Agent Settings -->
-                                    <x-jet-dropdown-link href="{{ route('agents.show', Auth::user()->currentAgent->id) }}">
+                                    <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentAgent->id) }}">
                                         {{ __('Agent Settings') }}
                                     </x-jet-dropdown-link>
 
-                                    @can('create', Laravel\Jetstream\Jetstream::newAgentModel())
-                                        <x-jet-dropdown-link href="{{ route('agents.create') }}">
+                                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                                        <x-jet-dropdown-link href="{{ route('teams.create') }}">
                                             {{ __('Create New Agent') }}
                                         </x-jet-dropdown-link>
                                     @endcan
@@ -56,13 +56,13 @@
                                     <div class="border-t border-gray-100"></div>
 
                                     <!-- Agent Switcher -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{-- <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('Switch Agents') }}
                                     </div>
 
                                     @foreach (Auth::user()->allAgents() as $agent)
-                                        <x-jet-switchable-agent :agent="$agent" />
-                                    @endforeach
+                                        <x-jet-switchable-team :team="$agent" />
+                                    @endforeach --}}
                                 </div>
                             </x-slot>
                         </x-jet-dropdown>
@@ -182,7 +182,7 @@
                 </form>
 
                 <!-- Agent Management -->
-                @if ((Laravel\Jetstream\Jetstream::hasAgentFeatures()) && (auth()->user()->isAdmin()))
+                @if ((Laravel\Jetstream\Jetstream::hasTeamFeatures()) && (auth()->user()->isAdmin()))
                     <div class="border-t border-gray-200"></div>
 
                     <div class="block px-4 py-2 text-xs text-gray-400">
@@ -190,12 +190,12 @@
                     </div>
 
                     <!-- Agent Settings -->
-                    <x-jet-responsive-nav-link href="{{ route('agents.show', Auth::user()->currentAgent->id) }}" :active="request()->routeIs('agents.show')">
+                    <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentAgent->id) }}" :active="request()->routeIs('teams.show')">
                         {{ __('Agent Settings') }}
                     </x-jet-responsive-nav-link>
 
-                    @can('create', Laravel\Jetstream\Jetstream::newAgentModel())
-                        <x-jet-responsive-nav-link href="{{ route('agents.create') }}" :active="request()->routeIs('agents.create')">
+                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                        <x-jet-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
                             {{ __('Create New Agent') }}
                         </x-jet-responsive-nav-link>
                     @endcan
@@ -203,13 +203,13 @@
                     <div class="border-t border-gray-200"></div>
 
                     <!-- Agent Switcher -->
-                    <div class="block px-4 py-2 text-xs text-gray-400">
+                    {{-- <div class="block px-4 py-2 text-xs text-gray-400">
                         {{ __('Switch Agents') }}
-                    </div>
+                    </div> --}}
 
-                    @foreach (Auth::user()->allAgents() as $agent)
-                        <x-jet-switchable-agent :agent="$agent" component="jet-responsive-nav-link" />
-                    @endforeach
+                    {{-- @foreach (Auth::user()->allAgents() as $agent)
+                        <x-jet-switchable-team :team="$agent" component="jet-responsive-nav-link" />
+                    @endforeach --}}
                 @endif
             </div>
         </div>
