@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Faker\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -29,4 +30,12 @@ class Report extends Model implements HasMedia
         'longitude',
         'private',
     ];
+
+    public static function generateSerial() {
+        $faker = Factory::create();
+        $serialPrefix = 'ID';
+        $serialSuffix = $faker->unique()->regexify('[A-Z]{5}[0-4]{3}');
+
+        return $serialPrefix . $serialSuffix;
+    }
 }

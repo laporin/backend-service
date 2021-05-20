@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreReportRequest;
+use App\Http\Requests\CreateReportRequest;
 use App\Http\Resources\ReportCollection;
 use App\Http\Resources\ReportResource;
 use App\Models\Report;
@@ -25,9 +25,29 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(StoreReportRequest $request)
+    public function create(CreateReportRequest $request)
     {
-        //
+        $report = Report::create([
+            'serial' => Report::generateSerial(),
+            'user_id' => $request->user()->id,
+            'category_id' => $request->category_id,
+            'detail' => $request->detail,
+            'address' => $request->address,
+            'city' => $request->city,
+            'subdistrict' => $request->subdistrict,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'private' => filter_var($request->private, FILTER_VALIDATE_BOOLEAN),
+        ]);
+
+        if ($request->hasFile('images')) {
+            $report->addMultipleMediaFromRequest(['images'])
+                ->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection('reports');
+                });
+        }
+
+        return new ReportResource($report);
     }
 
     /**
