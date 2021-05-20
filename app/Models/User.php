@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Doctrine\DBAL\Types\StringType;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -63,5 +64,17 @@ class User extends Authenticatable
 
     public function isAdmin() {
         return $this->name == 'admin';
+    }
+
+    public static function admin() {
+        return User::getByRole('admin');
+    }
+
+    public static function user() {
+        return User::getByRole('user');
+    }
+
+    public static function getByRole(String $role) {
+        return User::role($role)->first();
     }
 }

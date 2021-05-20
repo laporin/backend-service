@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -51,6 +52,8 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof AuthorizationException) {
             return response()->json(['error' => 'Not authorized.'], 403);
+        } else if ($exception instanceof ModelNotFoundException) {
+            return response()->json(['error' => 'Not found'], 404);
         }
 
         return parent::render($request, $exception);
