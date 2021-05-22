@@ -31,7 +31,18 @@ class Report extends Model implements HasMedia
         'private',
     ];
 
-    public static function generateSerial() {
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public static function generateSerial()
+    {
         $faker = Factory::create();
         $serialPrefix = 'ID';
         $serialSuffix = $faker->unique()->regexify('[A-Z]{5}[0-4]{3}');
