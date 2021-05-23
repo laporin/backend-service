@@ -27,7 +27,7 @@ class ReportResource extends JsonResource
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'private' => filter_var($this->private, FILTER_VALIDATE_BOOLEAN),
-            'image' => new MediaCollection($this->media->all()),
+            'images' => new MediaCollection($this->media->all()),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
