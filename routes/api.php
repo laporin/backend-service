@@ -29,4 +29,4 @@ Route::get('/categories/{id}', 'CategoryController@show');
 
 Route::get('/reports', 'ReportController@index');
 Route::get('/reports/{id}', 'ReportController@show');
-Route::post('/reports', 'ReportController@create')->middleware('auth:sanctum');
+Route::post('/reports', 'ReportController@store')->middleware('auth:sanctum');

@@ -25,7 +25,18 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CreateReportRequest $request)
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\CreateReportRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateReportRequest $request)
     {
         $report = Report::create([
             'serial' => Report::generateSerial(),
@@ -48,17 +59,6 @@ class ReportController extends Controller
         }
 
         return new ReportResource($report);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
