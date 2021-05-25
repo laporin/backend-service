@@ -2,6 +2,8 @@
 
 > Google Bangkit Capstone Project B21-CAP0330
 
+This backend is used for storing data from android.
+
 ## Dependencies
 
 * Mysql
