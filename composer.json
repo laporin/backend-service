@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
         "spatie/laravel-medialibrary": "^9.6",
-        "spatie/laravel-permission": "^4.0"
+        "spatie/laravel-permission": "^4.0",
+        "superbalist/laravel-google-cloud-storage": "^2.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
