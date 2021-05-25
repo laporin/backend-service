@@ -4,12 +4,18 @@
 
 ## Dependencies
 
-mysql
-php 8.06
+* Mysql
+* PHP 8.06
+* Composer 2.0
 
-butuh PHP extension:
-ext-exif
+## Needs PHP extension:
 
-phpvrew ext install exif
+* ext-exif
+
+install using
+
+```bash
+phpbrew ext install exif
+```
 
 ## Enjoy
