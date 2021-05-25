@@ -54,7 +54,7 @@ class ReportController extends Controller
         if ($request->hasFile('images')) {
             $report->addMultipleMediaFromRequest(['images'])
                 ->each(function ($fileAdder) {
-                    $fileAdder->toMediaCollection('reports');
+                    $fileAdder->toMediaCollection('reports', 'gcs');
                 });
         }
 
