@@ -21,4 +21,3 @@ phpbrew ext install exif
 ```
 
 ## Enjoy
-tes
