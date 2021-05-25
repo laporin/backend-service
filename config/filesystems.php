@@ -59,23 +59,13 @@ return [
 
         'gcs' => [
             'driver' => 'gcs',
-<<<<<<< HEAD
             'project_id' => env('GOOGLE_CLOUD_PROJECT_ID'),
             'key_file' => env('GOOGLE_CLOUD_KEY_FILE', null), // optional: /path/to/service-account.json
             'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKET'),
-=======
-            'project_id' => env('GOOGLE_CLOUD_PROJECT_ID', 'aplikasi-laporin'),
-            'key_file' => env('GOOGLE_CLOUD_KEY_FILE', null), // optional: /path/to/service-account.json
-            'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKET', 'backend-service-bucket'),
->>>>>>> 29dc9e3b729b5d8f773e4585e3eabd163e2b60a0
             'path_prefix' => env('GOOGLE_CLOUD_STORAGE_PATH_PREFIX', null), // optional: /default/path/to/apply/in/bucket
             'storage_api_uri' => env('GOOGLE_CLOUD_STORAGE_API_URI', null), // see: Public URLs below
             'visibility' => 'public', // optional: public|private
         ],
-<<<<<<< HEAD
-=======
-
->>>>>>> 29dc9e3b729b5d8f773e4585e3eabd163e2b60a0
     ],
 
     /*
