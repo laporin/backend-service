@@ -17,7 +17,7 @@ class ReportController extends Controller
      */
     public function index(): ReportCollection
     {
-        return new ReportCollection(Report::paginate());
+        return new ReportCollection(Report::where(['private' => false])->paginate());
     }
 
     /**
