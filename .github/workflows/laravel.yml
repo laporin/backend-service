@@ -47,4 +47,4 @@ jobs:
           script: |
             cd /var/www/backend-service/
             git pull
-            composer install
+            composer install --ignore-platform-reqs
