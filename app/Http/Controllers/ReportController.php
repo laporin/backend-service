@@ -13,9 +13,9 @@ class ReportController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return ReportCollection
      */
-    public function index()
+    public function index(): ReportCollection
     {
         return new ReportCollection(Report::paginate());
     }
@@ -46,8 +46,8 @@ class ReportController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'subdistrict' => $request->subdistrict,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
+            'latitude' => floatval($request->latitude),
+            'longitude' => floatval($request->longitude),
             'private' => filter_var($request->private, FILTER_VALIDATE_BOOLEAN),
         ]);
 
