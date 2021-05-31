@@ -52,3 +52,4 @@ jobs:
             php artisan migrate
             php artisan cache:clear
             php artisan config:clear
+            sudo service apache2 restart
