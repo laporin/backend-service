@@ -46,5 +46,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /var/www/backend-service/
+            git checkout master
             git pull
             composer install --ignore-platform-reqs
+            php artisan migrate
