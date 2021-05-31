@@ -50,3 +50,5 @@ jobs:
             git pull
             composer install --ignore-platform-reqs
             php artisan migrate
+            php artisan cache:clear
+            php artisan config:clear
