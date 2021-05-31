@@ -49,7 +49,9 @@ jobs:
             git checkout master
             git pull
             composer install --ignore-platform-reqs
+            composer dump-autoload
             php artisan migrate
             php artisan cache:clear
             php artisan config:clear
+            php artisan config:cache
             sudo service apache2 restart
