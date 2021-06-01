@@ -29,7 +29,7 @@ class ReportController extends Controller
 
     public function all(): ReportCollection
     {
-        return new ReportCollection(Report::all());
+        return new ReportCollection(Report::orderBy('created_at', 'desc')->take(50)->get());
     }
 
     /**
