@@ -73,6 +73,10 @@ class User extends Authenticatable
         return $this->name == 'admin';
     }
 
+    public function reports() {
+        return $this->hasMany(Report::class)->get();
+    }
+
     // public function agents() {
     //     return $this->hasManyThrough(Agent::class, AgentUser::class);
     // }

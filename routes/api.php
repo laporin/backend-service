@@ -28,6 +28,7 @@ Route::get('/categories', 'CategoryController@index');
 Route::get('/categories/{id}', 'CategoryController@show');
 
 Route::get('/reports', 'ReportController@index');
+Route::get('/reports/me', 'ReportController@me')->middleware('auth:sanctum');
 Route::get('/reports/{id}', 'ReportController@show');
 Route::post('/reports', 'ReportController@store')->middleware('auth:sanctum');
 Route::delete('/reports/{id}', 'ReportController@destroy')->middleware('auth:sanctum');

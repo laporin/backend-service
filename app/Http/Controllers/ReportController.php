@@ -7,6 +7,7 @@ use App\Http\Resources\ReportCollection;
 use App\Http\Resources\ReportResource;
 use App\Models\Report;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -18,6 +19,12 @@ class ReportController extends Controller
     public function index(): ReportCollection
     {
         return new ReportCollection(Report::where(['private' => false])->paginate());
+    }
+
+    public function me(): ReportCollection
+    {
+        $userId = Auth::user()->id;
+        return new ReportCollection(Report::where(['user_id' => $userId])->paginate());
     }
 
     /**
