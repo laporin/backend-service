@@ -54,4 +54,4 @@ jobs:
             sudo php artisan cache:clear
             php artisan config:clear
             php artisan config:cache
-            sudo service apache2 restart
+            sudo service nginx restart
