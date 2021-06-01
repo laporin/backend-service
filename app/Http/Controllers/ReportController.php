@@ -101,8 +101,9 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Report $report)
+    public function destroy($id)
     {
+        $report = Report::findOrFail($id);
         $report->delete();
         return response()->json(['message' => 'Successfully deleted']);
     }
