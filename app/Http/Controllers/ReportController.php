@@ -27,6 +27,11 @@ class ReportController extends Controller
         return new ReportCollection(Report::where(['user_id' => $userId])->paginate());
     }
 
+    public function all(): ReportCollection
+    {
+        return new ReportCollection(Report::all());
+    }
+
     /**
      * Show the form for creating a new resource.
      *
