@@ -9,22 +9,20 @@
                         <circle cx="8.26525" cy="13.5" r="0.877551" fill="#4FA1FC" stroke="#4FA1FC"/>
                         <circle cx="13.5" cy="13.4999" r="0.877551" fill="#4FA1FC" stroke="#4FA1FC"/>
                         <circle cx="18.7347" cy="13.4999" r="0.877551" fill="#4FA1FC" stroke="#4FA1FC"/>
-                    </svg>                  
+                    </svg>
                     <span class="ml-3 text-xl text-gray-800">Laporin</span>
                 </a>
-                <nav id="nav" class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-24 pt-5 mt-24
-                    text-sm text-gray-800 bg-white border-t border-b border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0
-                    md:border-none md:py-0 md:flex md:relative">
+                <nav id="nav" class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-24 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-b border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative">
                     @if (Route::has('login'))
                     @auth
                     <a class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-blue-400"
                         href="{{ url('/dashboard') }}">Dashboard</a>
                     @else
-                    <a class="mr-0 font-bold duration-100 py-2 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-blue-400"
+                    <a class="py-2 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-blue-400"
                         href="{{ route('login') }}">Log in</a>
-        
+
                     @if (Route::has('register'))
-                    <a class="mr-0 font-bold duration-100 py-3 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-blue-400"
+                    <a class="py-3 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-blue-400"
                         href="{{ route('register') }}">Register</a>
                     @endif
                     @endauth
@@ -47,7 +45,8 @@
                         We are ready to accommodate and forward your complaint to the right party.
                     </p>
                     <a class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-blue-400 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0"
-                        href="#">
+                        href="https://storage.googleapis.com/backend-service-bucket/app-release.apk"
+                        target="_blank">
                         Download APK
                     </a>
                     <div class="flex-col hidden mt-12 sm:flex lg:mt-24">
