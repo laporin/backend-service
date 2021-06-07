@@ -32,4 +32,5 @@ Route::get('/reports/all', 'ReportController@all'); # for text similarity
 Route::get('/reports/me', 'ReportController@me')->middleware('auth:sanctum');
 Route::get('/reports/{id}', 'ReportController@show');
 Route::post('/reports', 'ReportController@store')->middleware('auth:sanctum');
+Route::put('/reports/{id}', 'ReportController@update')->middleware('auth:sanctum');
 Route::delete('/reports/{id}', 'ReportController@destroy')->middleware('auth:sanctum');

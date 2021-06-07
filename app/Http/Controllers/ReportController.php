@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateReportRequest;
+use App\Http\Requests\UpdateReportRequest;
 use App\Http\Resources\ReportCollection;
 use App\Http\Resources\ReportResource;
 use App\Models\Report;
@@ -102,9 +103,12 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Report $report)
+    public function update(UpdateReportRequest $request, $id)
     {
-        //
+        $report = Report::findOrFail($id);
+        $report->update($request->all());
+
+        return new ReportResource($report);
     }
 
     /**
@@ -117,6 +121,7 @@ class ReportController extends Controller
     {
         $report = Report::findOrFail($id);
         $report->delete();
+
         return response()->json(['message' => 'Successfully deleted']);
     }
 }
